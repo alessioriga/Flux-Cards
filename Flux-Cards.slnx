@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Flux-Cards.vcxproj" />
+  <Project Path="Flux-Cards.vcxproj" Id="5049d4de-5b18-4004-afa6-cc706e75dd4b" />
 </Solution>
