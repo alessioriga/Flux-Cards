@@ -42,3 +42,12 @@ Deck::Deck()
 	}
 
 }
+
+Deck::~Deck()
+{
+	// Release the memory allocated for each card.
+	for (Card* card : cards)
+	{
+		delete card;
+	}
+}
