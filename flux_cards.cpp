@@ -11,12 +11,6 @@
 
 using namespace std;
 
-//struct Card {
-//	char value;
-//	string suit;
-//	bool charge;
-//};
-
 bool get_charge(int counter);
 string get_suit();
 char get_value();
