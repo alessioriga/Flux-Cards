@@ -22,7 +22,7 @@ Deck::Deck()
 		currentSuit = suits[suitCounter];
 
 		// Iterate through each card value.
-		for (int valueCounter = 0; value < 5; valueCounter++)
+		for (int valueCounter = 0; valueCounter < 5; valueCounter++)
 		{
 			currentValue = values[valueCounter];
 
