@@ -30,6 +30,12 @@ Deck::Deck()
 			for (int chargeCounter = 0; chargeCounter < 2; chargeCounter++)
 			{
 				currentCharge = charges[chargeCounter];
+
+				// Dynamically allocate a new card.
+				Card* newCard = new Card(currentValue, currentSuit, currentCharge);
+				// Add the card pointer to the deck.
+				cards.push_back(newCard);
+
 			}
 
 		}
