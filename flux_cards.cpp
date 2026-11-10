@@ -1,20 +1,21 @@
 // flux_cards_start.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+#include "Card.h"
 #include <iostream>
 #include <cstdlib> // Needed for rand() and srand()
 #include <ctime>   // Needed for time()
 #include <vector> //need for vectors
 #include <algorithm> //needed for the random shuffle
+#include <random>
 
 
 using namespace std;
 
-struct Card {
-	char value;
-	string suit;
-	bool charge;
-};
+//struct Card {
+//	char value;
+//	string suit;
+//	bool charge;
+//};
 
 bool get_charge(int counter);
 string get_suit();
@@ -29,7 +30,12 @@ int get_card_value(char card_value);
 
 int main()
 {
+	Card testCard('C', "Saturn", false);
 
+	cout << "Card value: " << testCard.getValue() << endl;
+	cout << "Card suit: " << testCard.getSuit() << endl;
+	cout << "Card charge: "
+		<< (testCard.getCharge() ? "Positive" : "Negative") << endl;
 	// Get a different random number each time the program runs
 	srand(time(0));
 	//create a vector of pointers to a card struct
@@ -54,8 +60,8 @@ void play_game(vector <Card*>& flux_deck) {
 	Card* computer_card = flux_deck[0];
 	Card* human_card = flux_deck[1];
 
-	int computer_value = get_card_value(computer_card->value);
-	int human_value = get_card_value(human_card->value);
+	int computer_value = get_card_value(computer_card->getValue());
+	int human_value = get_card_value(human_card->getValue());
 	if (computer_value > human_value) {
 		cout << "Computer wins!";
 	}
@@ -109,14 +115,23 @@ void create_deck(vector <Card*>& flux_deck) {
 void test_shuffle(vector <Card*>& flux_deck) {
 	//notice the two different ways of writing the values of the cards
 	for (int i = 0; i < 5; i++) {
-		cout << flux_deck[i]->value << " of " << (*flux_deck[i]).suit << " with a " << (*flux_deck[i]).charge << " charge" << endl;
+		cout << flux_deck[i]->getValue() 
+		<< " of " << flux_deck[i]->getSuit() 
+		<< " with a " 
+		<< (flux_deck[i]->getCharge() ? "Positive" : "Negative") 
+		<< " charge" << endl;
 	}
 }
 
 //we send in a vector of points - no need to return a value
-void shuffle_cards(vector <Card*>& flux_deck) {
-	random_shuffle(flux_deck.begin(), flux_deck.end());
+void shuffle_cards(vector<Card*>& flux_deck)
+{
+	std::random_device rd;
+	std::mt19937 generator(rd());
+
+	std::shuffle(flux_deck.begin(), flux_deck.end(), generator);
 }
+
 
 //return the value for each card
 char get_value() {
