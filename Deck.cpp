@@ -10,9 +10,11 @@ Deck::Deck()
 
 	char values[5] = { 'A', 'B', 'C', 'D', 'E' };
 
-	string currentSuit;
+	bool charges[2] = { true, false };
 
+	string currentSuit;
 	char currentValue;
+	bool currentCharge;
 
 	// Iterate through each planetary suit.
 	for (int suitCounter = 0; suitCounter < 5; suitCounter++)
@@ -23,6 +25,13 @@ Deck::Deck()
 		for (int valueCounter = 0; value < 5; valueCounter++)
 		{
 			currentValue = values[valueCounter];
+
+			// Iterate through both possible charges.
+			for (int chargeCounter = 0; chargeCounter < 2; chargeCounter++)
+			{
+				currentCharge = charges[chargeCounter];
+			}
+
 		}
 	}
 
