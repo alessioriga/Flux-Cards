@@ -1,6 +1,8 @@
 #include "Card.h"
 
-Card::Card(char value, const std::string& suit, bool charge)
+using namespace std;
+
+Card::Card(char value, const string& suit, bool charge)
 {
 	this->value = value;
 	this->suit = suit;
@@ -12,7 +14,7 @@ char Card::getValue() const
 	return this->value;
 }
 
-std::string Card::getSuit() const
+string Card::getSuit() const
 {
 	return this->suit;
 }
